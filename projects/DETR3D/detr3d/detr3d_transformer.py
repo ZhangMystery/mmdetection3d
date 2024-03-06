@@ -222,6 +222,7 @@ class Detr3DCrossAtten(BaseModule):
             Default: None.
     """
 
+    # Cross-attention的输入来自不同的序列
     def __init__(
         self,
         embed_dims=256,
