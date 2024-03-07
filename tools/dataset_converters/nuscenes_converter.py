@@ -165,7 +165,8 @@ def _fill_trainval_infos(nusc,
     train_nusc_infos = []
     val_nusc_infos = []
 
-    for sample in mmengine.track_iter_progress(nusc.sample):
+    # for sample in mmengine.track_iter_progress(nusc.sample):
+    for sample in mmcv.track_iter_progress(nusc.sample[0:3376]):
         lidar_token = sample['data']['LIDAR_TOP']
         sd_rec = nusc.get('sample_data', sample['data']['LIDAR_TOP'])
         cs_record = nusc.get('calibrated_sensor',
