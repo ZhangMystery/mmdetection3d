@@ -84,7 +84,7 @@ test_pipeline = [
     dict(type='Pack3DDetInputs', keys=['points'])
 ]
 train_dataloader = dict(
-    batch_size=2,
+    batch_size=1,
     num_workers=2,
     dataset=dict(
         type='RepeatDataset',
@@ -101,7 +101,7 @@ train_cfg = dict(by_epoch=True, max_epochs=80, val_interval=2)
 #   - `enable` means enable scaling LR automatically
 #       or not by default.
 #   - `base_batch_size` = (8 GPUs) x (2 samples per GPU).
-auto_scale_lr = dict(enable=False, base_batch_size=16)
+auto_scale_lr = dict(enable=False, base_batch_size=8)
 param_scheduler = [
     # learning rate scheduler
     # During the first 35 epochs, learning rate increases from 0 to lr * 10
